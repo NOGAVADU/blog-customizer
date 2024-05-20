@@ -42,9 +42,10 @@ export const ArticleParamsForm: FC<ArticleParamsFormProps> = ({
 		setIsOpen(false);
 	};
 
-	const handleFormReset = (e: FormEvent) => {
+	const handleFormReset = () => {
 		setArticleState(defaultArticleState)
 		setArticleFormState(defaultArticleState)
+		setIsOpen(false)
 	}
 
 	return (
