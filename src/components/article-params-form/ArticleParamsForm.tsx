@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import {
 	ArticleStateType,
 	backgroundColors,
-	contentWidthArr,
+	contentWidthArr, defaultArticleState,
 	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
@@ -42,6 +42,11 @@ export const ArticleParamsForm: FC<ArticleParamsFormProps> = ({
 		setIsOpen(false);
 	};
 
+	const handleFormReset = (e: FormEvent) => {
+		setArticleState(defaultArticleState)
+		setArticleFormState(defaultArticleState)
+	}
+
 	return (
 		<div ref={ref}>
 			<ArrowButton isActive={isOpen} onClick={handleButtonClick} />
@@ -49,7 +54,7 @@ export const ArticleParamsForm: FC<ArticleParamsFormProps> = ({
 				className={clsx(styles.container, {
 					[styles.container_open]: isOpen,
 				})}>
-				<form className={styles.form} onSubmit={handleFormSubmit}>
+				<form className={styles.form} onSubmit={handleFormSubmit} onReset={handleFormReset}>
 					<Text as='h2' weight={800} uppercase size={31}>
 						Задайте параметры
 					</Text>
